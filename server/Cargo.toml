@@ -1,0 +1,20 @@
+# TUGAS_ISI1/Server/Cargo.toml
+
+[package]
+name = "tcp_server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = ["full", "macros", "time"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.11", features = ["json"] }
+chrono = { version = "0.4", features = ["serde"] }
+dotenv = "0.15"
+ethers = { version = "2.0.0", features = ["ws", "rustls"] } # Pastikan versi ini!
+hex = "0.4"
+eyre = "0.6"
+
+[build-dependencies]
+ethers-contract-abigen = "2.0.0" # Pastikan versi ini cocok dengan ethers
