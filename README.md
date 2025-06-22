@@ -1,4 +1,4 @@
-# 🦀 RustProject-Blockchain
+# 🦀 RustProject-Blockchain-DApp Web3
 
 RustProject-Blockchain adalah sistem monitoring data sensor suhu dan kelembapan berbasis **Rust**, yang terhubung dengan **InfluxDB**, **Grafana**, **smart contract Ethereum**, dan antarmuka GUI **PyQt** serta dashboard **Web3 (React)**. Proyek ini dirancang untuk memberikan solusi **IoT + Blockchain + Real-time Dashboard** dalam satu kesatuan sistem.
 
