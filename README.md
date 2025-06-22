@@ -17,15 +17,16 @@ RustProject-Blockchain adalah sistem monitoring data sensor suhu dan kelembapan 
 
 ## ⚙️ Teknologi yang Digunakan
 
-| Komponen       | Teknologi                             |
-| -------------- | ------------------------------------- |
-| Backend Server | Rust, Tokio, Serde, Reqwest           |
-| Database       | InfluxDB v2                           |
-| Visualisasi    | Grafana, PyQtGraph, Recharts          |
-| Blockchain     | Solidity, Ganache, ethers.js, ABI     |
-| GUI            | PyQt6                                 |
-| Frontend Web   | React, TypeScript, Web3.js, PapaParse |
-| Komunikasi     | TCP Socket                            |
+| **Kategori**   | **Teknologi**                                               | **Penjelasan**                                                                                                                                                                                                                                                                                                                           |
+| -------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Backend Server | `Rust`, `Tokio`, `Serde`, `Reqwest`                         | - Rust adalah bahasa inti untuk server TCP.- Tokio digunakan untuk asynchronous I/O (agar server bisa menangani banyak koneksi).- Serde digunakan untuk parsing/serialisasi data JSON dari sensor.- Reqwest dipakai untuk HTTP client, contohnya untuk kirim data ke InfluxDB v2 atau Web3 API.                                                 |
+| Sensor Client  | `Rust + JSON via TCP`                                       | Program Rust yang berjalan sebagai pengirim data dari sensor ke server menggunakan koneksi TCP dalam format JSON.                                                                                                                                                                                                                               |
+| Komunikasi     | `TCP Socket`                                                | Protokol komunikasi utama antara sensor, server, dan GUI (menggunakan socket TCP).                                                                                                                                                                                                                                                              |
+| Database       | `InfluxDB v2`                                               | Time-series database untuk menyimpan data suhu dan kelembapan berdasarkan timestamp.                                                                                                                                                                                                                                                            |
+| Visualisasi    | `Grafana`, `PyQtGraph`, `Recharts`                          | - Grafana untuk panel data dari InfluxDB.- PyQtGraph digunakan dalam GUI Python untuk menampilkan grafik real-time.- Recharts adalah library grafik pada React untuk web dashboard.                                                                                                                                                             |
+| GUI Realtime   | `PyQt6`                                                     | Framework GUI berbasis Python, digunakan untuk membuat antarmuka visual real-time.                                                                                                                                                                                                                                                              |
+| Frontend Web   | `React`, `TypeScript`, `PapaParse`, `Recharts`, `ethers.js` | - React adalah framework frontend.- TypeScript memberikan type safety.- PapaParse untuk mengubah data menjadi CSV.- Recharts menampilkan data dalam grafik.- ethers.js digunakan untuk membaca data dari smart contract.                                                                                                                        |
+| Blockchain     | `Solidity`, `Hardhat`, `Ganache`, `ethers.js`, `ABI`        | - Solidity adalah bahasa untuk menulis smart contract.- Hardhat digunakan untuk compile, test, dan deploy smart contract.- Ganache adalah Ethereum node lokal untuk testing.- ethers.js untuk interaksi dengan smart contract via JavaScript.- ABI (Application Binary Interface) dibutuhkan agar Rust/React bisa bicara dengan smart contract. |
 
 ---
 
@@ -38,7 +39,6 @@ RustProject-Blockchain/
 ├── qt_gui/             # PyQt GUI real-time
 ├── dapp/               # React dashboard Web3
 ├── smartcontract/      # Solidity contract dan ABI
-├── .env                # Konfigurasi koneksi Ethereum
 └── README.md
 ```
 
@@ -92,22 +92,19 @@ python main.py
 
 ```bash
 cd dapp
-npm install
 npm start
 ```
 
 ---
 
-### 👛 InfluxDB & Grafana (Opsional)
+## 🍅 InfluxDB, Grafana & DApp Address
 
-Jika menggunakan Docker, jalankan:
+| Komponen | Alamat                                      |
+|----------|---------------------------------------------|
+| InfluxDB | [http://localhost:8086](http://localhost:8086) |
+| Grafana  | [http://localhost:3001](http://localhost:3000) |
+| DApp     | [http://localhost:3000](http://localhost:3001) |
 
-```bash
-docker-compose up -d
-```
-
-- InfluxDB: [http://localhost:8086](http://localhost:8086)
-- Grafana:  [http://localhost:3001](http://localhost:3001)
 
 ---
 
@@ -123,7 +120,7 @@ docker-compose up -d
 
 ---
 
-## 💡 Contoh Output
+## 💡 Output
 
 **GUI PyQt:**
 
@@ -141,23 +138,11 @@ docker-compose up -d
 
 ---
 
-## 🔖 Lisensi
+## ✨ Author
 
-Proyek ini dilisensikan di bawah MIT License.
-
----
-
-## 🤝 Kontribusi
-
-Pull request dan masukan sangat diterima. Silakan fork repo ini dan mulai kontribusi!
-
----
-
-## ✨ Penulis
-
-- **Mushthafa Ali Akbar**\
-- **Axel Fitra Ananda**\
-- **Lu'Lu' Rusyida**\
+- **Mushthafa Ali Akbar**
+- **Axel Fitra Ananda**
+- **Lu'Lu' Rusyida Hamudya**\
   Teknik Instrumentasi ITS
   [GitHub](https://github.com/mushthafali)
 
