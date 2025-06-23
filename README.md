@@ -102,8 +102,8 @@ npm start
 | Komponen | Alamat                                      |
 |----------|---------------------------------------------|
 | InfluxDB | [http://localhost:8086](http://localhost:8086) |
-| Grafana  | [http://localhost:3001](http://localhost:3001) |
-| DApp     | [http://localhost:3000](http://localhost:3000) |
+| Grafana  | [http://localhost:3001](http://localhost:3000) |
+| DApp     | [http://localhost:3000](http://localhost:3001) |
 
 
 ---
